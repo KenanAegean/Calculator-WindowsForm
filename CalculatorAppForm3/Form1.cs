@@ -16,7 +16,6 @@ namespace CalculatorAppForm3
         private string op = "";
         private bool isEvaluate = true;
 
-        //Button[] numButtons;
         private Button[] numButtons = new Button[10];
         private Button[] opButtons = new Button[6];
 
@@ -25,9 +24,15 @@ namespace CalculatorAppForm3
         {
             dynamicNumButtonMaker();
             dynamicOpButtonMaker();
+            dynamicScienceButtonMaker();
 
             InitializeComponent();
             calculationShow.Text = "";
+        }
+
+        private void dynamicScienceButtonMaker()
+        {
+            throw new NotImplementedException();
         }
 
         private void dynamicOpButtonMaker()
@@ -37,7 +42,6 @@ namespace CalculatorAppForm3
             int x = 0;
             for (int i = 0; i < opButtons.Length; i++)
             {
-
                 if (i == 0)
                 {
                     opButtons[0] = new Button
@@ -50,7 +54,6 @@ namespace CalculatorAppForm3
                         Text = "C"
                     };
                     opButtons[0].Click += new EventHandler(this.btnClear_Click);
-
                 }
                 else
                 {
@@ -76,16 +79,8 @@ namespace CalculatorAppForm3
                     opButtons[i].Click += new EventHandler(this.operatorsClicked);
                 }
                 this.Controls.Add(opButtons[i]);
-
-
             }
-
-
-
-
         }
-
-       
 
         private void dynamicNumButtonMaker()
         {
@@ -174,7 +169,6 @@ namespace CalculatorAppForm3
             
             
         }
-
         //not working correctly
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -183,9 +177,7 @@ namespace CalculatorAppForm3
             result = 0;
             isEvaluate = true;
             op = "";
-        }
-
-        
+        }    
     }
 }
 
