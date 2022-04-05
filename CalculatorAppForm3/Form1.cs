@@ -32,7 +32,7 @@ namespace CalculatorAppForm3
 
         private void dynamicScienceButtonMaker()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void dynamicOpButtonMaker()
