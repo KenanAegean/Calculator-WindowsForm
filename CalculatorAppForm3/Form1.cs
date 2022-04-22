@@ -32,7 +32,7 @@ namespace CalculatorAppForm3
 
         private void dynamicScienceButtonMaker()
         {
-            //throw new NotImplementedException();
+            //empty for now
         }
 
         private void dynamicOpButtonMaker()
@@ -44,7 +44,7 @@ namespace CalculatorAppForm3
             {
                 if (i == 0)
                 {
-                    opButtons[0] = new Button
+                    opButtons[i] = new Button
                     {
                         Name = "btnClear",
                         Location = new Point(178, 85),
@@ -53,7 +53,7 @@ namespace CalculatorAppForm3
                         ForeColor = Color.White,
                         Text = "C"
                     };
-                    opButtons[0].Click += new EventHandler(this.btnClear_Click);
+                    opButtons[i].Click += new EventHandler(this.btnClear_Click);
                 }
                 else
                 {
@@ -129,7 +129,7 @@ namespace CalculatorAppForm3
         }
         private void operatorsClicked(object sender, EventArgs e)
         {
-            //some kinde error here solve!!
+            //some kinde error here to solve!!
             isEvaluate = true;
             float number = Convert.ToUInt32(txtResult.Text);
             switch (op)
