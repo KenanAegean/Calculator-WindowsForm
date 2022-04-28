@@ -24,6 +24,7 @@ namespace CalculatorAppForm3
 
         public Form1()
         {
+            //Create Dynamic Interface
             dynamicNumButtonMaker();
             dynamicOpButtonMaker();
             dynamicScienceButtonMaker();
@@ -66,10 +67,7 @@ namespace CalculatorAppForm3
                 }
                 scnButtons[i].Click += new EventHandler(this.scienceFucntion);
                 this.Controls.Add(scnButtons[i]);
-            }
-            
-              
-
+            }      
         }
 
         private void dynamicOpButtonMaker()
@@ -166,28 +164,28 @@ namespace CalculatorAppForm3
         }
         private void operatorsClicked(object sender, EventArgs e)
         {
-            //some kinde error here to solve!!
+            
             isEvaluate = true;
-            float number = Convert.ToUInt32(txtResult.Text);
+            //float number = Convert.ToUInt32(txtResult.Text);
             switch (op)
             {
                 case "+":
-                    result += number;
+                    result += Convert.ToUInt32(txtResult.Text);
                     break;
                 case "-":
-                    result -= number;
+                    result -= Convert.ToUInt32(txtResult.Text);
                     break;
                 case "*":
-                    result *= number;
+                    result *= Convert.ToUInt32(txtResult.Text);
                     break;
                 case "/":
-                    result /= number;
+                    result /= Convert.ToUInt32(txtResult.Text);
                     break;
                 case "=":
                     txtResult.Text = result.ToString();
                     break;
                 default:
-                    result = number;
+                    result = Convert.ToUInt32(txtResult.Text);
                     txtResult.Clear();
                     break;
             }
@@ -206,7 +204,7 @@ namespace CalculatorAppForm3
             
             
         }
-        //not working correctly
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtResult.Clear();
@@ -220,8 +218,9 @@ namespace CalculatorAppForm3
         private void scienceFucntion(object sender, EventArgs e)
         {
             //"Sqrt", "Log", "Ln", "Sin", "Cos", "Tan", "Pi", "Fac"
-            isEvaluate = true;
-            float number = Convert.ToUInt32(txtResult.Text);
+            //isEvaluate = true;
+            //float number = Convert.ToUInt32(txtResult.Text);
+            //some kinde error here to solve!!
             switch (sc)
             {
                 case "Sqrt":
@@ -261,7 +260,7 @@ namespace CalculatorAppForm3
                     txtResult.Text = System.Convert.ToString(tan);
                     break;
                 case "Pi":
-                    txtResult.Text = "3,141592653589793";
+                    txtResult.Text = "3,141592653589";
                     break;
                 case "Fac":
                     double fac = Double.Parse(txtResult.Text);
@@ -274,7 +273,7 @@ namespace CalculatorAppForm3
                     txtResult.Text = result.ToString();
                     break;
                 default:
-                    result = number;
+                    //result = txtResult.Text;
                     txtResult.Clear();
                     break;
             }
