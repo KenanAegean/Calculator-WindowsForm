@@ -14,10 +14,12 @@ namespace CalculatorAppForm3
     {
         private float result;
         private string op = "";
+        private string sc = "";
         private bool isEvaluate = true;
 
         private Button[] numButtons = new Button[10];
         private Button[] opButtons = new Button[6];
+        private Button[] scnButtons = new Button[8];
 
 
         public Form1()
@@ -33,6 +35,41 @@ namespace CalculatorAppForm3
         private void dynamicScienceButtonMaker()
         {
             //empty for now
+            String[] scnOperators = { "Sqrt", "Log", "Ln", "Sin", "Cos", "Tan", "Pi", "Fac" };
+            int y = 0;
+            int x = 0;
+            for (int i = 0; i < scnButtons.Length; i++)
+            {
+
+                scnButtons[i] = new Button
+                {
+                    Name = "opButton " + scnOperators[i],
+                    Location = new Point(235 + (19*x) , 55 * (y + 2) - 25),
+                    Size = new Size(50, 50),
+                    BackColor = Color.BlueViolet,
+                    ForeColor = Color.White,
+                    Text = scnOperators[i]
+                };
+
+                if (i == 3)
+                {
+                    x = 2;
+                    ++x;
+                }
+                else if(i <= 3)
+                {
+                    y++;
+                }
+                else
+                {
+                    y--;
+                }
+                scnButtons[i].Click += new EventHandler(this.scienceFucntion);
+                this.Controls.Add(scnButtons[i]);
+            }
+            
+              
+
         }
 
         private void dynamicOpButtonMaker()
@@ -177,7 +214,72 @@ namespace CalculatorAppForm3
             result = 0;
             isEvaluate = true;
             op = "";
-        }    
+        }
+
+
+        private void scienceFucntion(object sender, EventArgs e)
+        {
+            //"Sqrt", "Log", "Ln", "Sin", "Cos", "Tan", "Pi", "Fac"
+            isEvaluate = true;
+            float number = Convert.ToUInt32(txtResult.Text);
+            switch (sc)
+            {
+                case "Sqrt":
+                    double sqrt = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("√" + (txtResult.Text));
+                    sqrt = Math.Sqrt(sqrt);
+                    txtResult.Text = System.Convert.ToString(sqrt); 
+                    break;
+                case "Log":
+                    double Log = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("log" + "(" + (txtResult.Text) + ")");
+                    Log = Math.Log10(Log);
+                    txtResult.Text = System.Convert.ToString(Log);
+                    break;
+                case "Ln":
+                    double Ln = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("ln" + "(" + (txtResult.Text) + ")");
+                    Log = Math.Log(Ln);
+                    txtResult.Text = System.Convert.ToString(Log);
+                    break;
+                case "Sin":
+                    double sin = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("Sin" + (txtResult.Text));
+                    sin = Math.Sin(sin);
+                    txtResult.Text = System.Convert.ToString(sin);
+                    break;
+                case "Cos":
+                    double cos = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("Cos" + (txtResult.Text));
+                    cos = Math.Cos(cos);
+                    txtResult.Text = System.Convert.ToString(cos);
+                    break;
+                case "Tan":
+                    double tan = Double.Parse(txtResult.Text);
+                    calculationShow.Text = System.Convert.ToString("Tan" + (txtResult.Text));
+                    tan = Math.Tan(tan);
+                    txtResult.Text = System.Convert.ToString(tan);
+                    break;
+                case "Pi":
+                    txtResult.Text = "3,141592653589793";
+                    break;
+                case "Fac":
+                    double fac = Double.Parse(txtResult.Text);
+                    double result = 1;
+                    while (fac != 1)
+                    {
+                        result = result * fac;
+                        fac = fac - 1;
+                    }
+                    txtResult.Text = result.ToString();
+                    break;
+                default:
+                    result = number;
+                    txtResult.Clear();
+                    break;
+            }
+            sc = (sender as Button).Text;
+        }
     }
 }
 

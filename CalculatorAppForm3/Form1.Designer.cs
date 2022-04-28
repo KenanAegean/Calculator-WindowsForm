@@ -37,7 +37,7 @@ namespace CalculatorAppForm3
             // 
             this.txtResult.Location = new System.Drawing.Point(13, 38);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(217, 20);
+            this.txtResult.Size = new System.Drawing.Size(331, 20);
             this.txtResult.TabIndex = 19;
             // 
             // calculationShow
@@ -55,7 +55,7 @@ namespace CalculatorAppForm3
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(248, 329);
+            this.ClientSize = new System.Drawing.Size(356, 329);
             this.Controls.Add(this.calculationShow);
             this.Controls.Add(this.txtResult);
             this.MinimizeBox = false;
