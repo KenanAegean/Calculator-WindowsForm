@@ -44,7 +44,7 @@ namespace CalculatorAppForm3
 
                 scnButtons[i] = new Button
                 {
-                    Name = "opButton " + scnOperators[i],
+                    Name = "scnButton " + scnOperators[i],
                     Location = new Point(235 + (19*x) , 55 * (y + 2) - 25),
                     Size = new Size(50, 50),
                     BackColor = Color.BlueViolet,
@@ -160,17 +160,11 @@ namespace CalculatorAppForm3
                 isEvaluate = false;
                 //calculationShow.Text = (sender as Button).Text;
             }
-
-          
             txtResult.Text += (sender as Button).Text;
-
-            
-          
         }
             
         private void operatorsClicked(object sender, EventArgs e)
-        {
-            
+        {      
             isEvaluate = true;
             //float number = Convert.ToUInt32(txtResult.Text);
             if(txtResult.Text != "")
