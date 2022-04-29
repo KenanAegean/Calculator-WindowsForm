@@ -219,7 +219,6 @@ namespace CalculatorAppForm3
             txtResult.Text = "";
         }
 
-
         private void scienceFucntion(object sender, EventArgs e)
         {
             //"Sqrt", "Log", "Ln", "Sin", "Cos", "Tan", "Pi", "Fac"
